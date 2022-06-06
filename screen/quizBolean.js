@@ -24,8 +24,10 @@ borderRadius:9,
 marginLeft:10,
 marginTop:4
 }]}>
+ <TouchableOpacity onPress={()=> navigation.toggleDrawer()}>
 <Image source={require("../assets/navbar.png")}
       style={styles.stile}></Image>
+      </TouchableOpacity>
       <Text> </Text>
       <View style={styles.stile}>
      <Image source={require("../assets/wallet.png")}

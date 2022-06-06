@@ -4,7 +4,13 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 import { LogBox } from 'react-native';
 import Elevations from 'react-native-elevation';
+import { DrawerActions } from '@react-navigation/native';
+import style from 'react-native-datepicker/style';
+
+
+
 function Question({ navigation }) {
+   
     useEffect(() => {
         LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
     }, []);
@@ -40,6 +46,7 @@ function Question({ navigation }) {
       {label: 'Orange', value: 'Orange'},
    
   ]);
+
     return(
 <ScrollView style={styles.container}>
 <View style={[styles.view,{
@@ -53,14 +60,17 @@ function Question({ navigation }) {
    marginLeft:10,
    marginTop:4
 }]}>
+   <TouchableOpacity onPress={()=> navigation.toggleDrawer()}>
 <Image source={require("../assets/navbar.png")}
-      style={styles.stile}></Image>
+      style={styles.stile}
+      ></Image>
+      </TouchableOpacity>
       <Text> </Text>
       <View style={styles.stile}>
      <Image source={require("../assets/wallet.png")}
       ></Image>
      
-      <Text style={styles.test}>12$ {'\n'} piscal dawn</Text>
+      <Text style={styles.test}>12$ {'\n'} Real Qzeto</Text>
       </View>
       <View style={styles.stile}>
       <Image source={require("../assets/dollar.png")} ></Image>
@@ -68,14 +78,14 @@ function Question({ navigation }) {
       </View>
       <View style={styles.stile}>
       <Image source={require("../assets/hand-gesture.png")}></Image>
-      <Text style={styles.test}>0$ {'\n'}piscal dawn</Text>
+      <Text style={styles.test}>0$ {'\n'}Bonus Qzeto</Text>
       </View>
       <Image source={require("../assets/Group.png")}></Image>
       </View>
       <View style={styles.cont}>
       <Text style={styles.mainHeading}>Add Question</Text>
       
-      <View style={{flexDirection:'row'}}>
+      <View style={styles.subjectView}>
           <Text style={styles.subHead}>Subject</Text>
           <View style={styles.drop}>
           <DropDownPicker
@@ -109,7 +119,7 @@ function Question({ navigation }) {
     
       </View>
       
-      <View style={{flexDirection:'row'}}>
+      <View style={styles.subjectView}>
           <Text style={styles.subHead}>Type    </Text>
           <View style={styles.drop}>
           <DropDownPicker
@@ -251,7 +261,7 @@ const styles=StyleSheet.create({
      mainHeading:{
          color:'#00459E',
          fontSize:23,
-         marginLeft:10
+         marginLeft:14
 
      },
      subHead:{
@@ -408,6 +418,11 @@ const styles=StyleSheet.create({
       paddingBottom:10,
   
    },
+   subjectView:{
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center'
+   }
   
 });
 export default Question;

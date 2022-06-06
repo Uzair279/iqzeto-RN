@@ -69,14 +69,16 @@ return (
         marginLeft:10,
         marginTop:4
 }]}>
+ <TouchableOpacity onPress={()=> navigation.toggleDrawer()}>
 <Image source={require("../assets/navbar.png")}
       style={styles.stile}></Image>
+      </TouchableOpacity>
       <Text> </Text>
       <View style={styles.stile}>
      <Image source={require("../assets/wallet.png")}
       ></Image>
      
-      <Text style={styles.test}>12$ {'\n'} piscal dawn</Text>
+      <Text style={styles.test}>12$ {'\n'} Real qzeto</Text>
       </View>
       <View style={styles.stile}>
       <Image source={require("../assets/dollar.png")} ></Image>
@@ -84,7 +86,7 @@ return (
       </View>
       <View style={styles.stile}>
       <Image source={require("../assets/hand-gesture.png")}></Image>
-      <Text style={styles.test}>0$ {'\n'}piscal dawn</Text>
+      <Text style={styles.test}>0$ {'\n'}Bonus qzeto</Text>
       </View>
       <Image source={require("../assets/Group.png")}></Image>
       </View>
@@ -92,7 +94,7 @@ return (
       <View style={styles.elev}>
             <Text style={styles.main}> Schedule New Quiz</Text>
             <View style={styles.first}>
-              <View style={{paddingTop:3.5}}>
+              <View style={{paddingTop:2}}>
                   <Text style={styles.circle}>1</Text>
                   </View>
             <Text style={[styles.point,{paddingHorizontal:5}]}>Basic Details</Text>
@@ -135,10 +137,10 @@ return (
     keyboardType = 'numeric' style={styles.input}></TextInput>
     </View>
     <View style={styles.first}>
-      <View style={{paddingTop:3.5}}>
+      <View style={{paddingTop:2}}>
                   <Text style={styles.circle}>2</Text>
                   </View>
-                  <View style={{paddingTop:1,paddingHorizontal:4}}>
+                  <View style={{paddingHorizontal:4}}>
                   
             <Text style={styles.point}>Basic Details</Text>
             </View>
@@ -151,7 +153,7 @@ return (
               
         <Text style={styles.pickedDate}>{date.toUTCString()}</Text>
         {!isPickerShow && (
-        <View style={{paddingTop:12,paddingLeft:160}}>
+        <View style={{marginRight:5}}>
         <Fontisto name='date' size={20} color='black' onPress={showPicker}
          />
         </View>
@@ -161,31 +163,31 @@ return (
         </View>
         
         </View>
-        <View style={{paddingTop:9}}>
-        <View style={{flexDirection:'row'}}>
-        <View style={{paddingHorizontal:10,width:"51%"}}>
+        <View style={{paddingTop:9,}}>
+        <View style={{flexDirection:'row',width:'100%'}}>
+        <View style={{width:"48%",paddingLeft:10}}>
             <Text>Start Time</Text>
            <View style={{paddingTop:4}}>
             <View style={styles.pickedDateContainer}>
-        <Text style={styles.pickedDates}>{time.toUTCString()}</Text>
+        <Text style={styles.pickedDates}>{date.toUTCString()}</Text>
         {!isPickerShow && (
-           <View style={{paddingTop:12,}}>
+           <View style={{paddingRight:2}}>
         <MaterialCommunityIcons name='clock-time-ten-outline' size={20} color='black' onPress={showPicker} />
         </View>
     )}
         </View>
         </View>
         </View>
-        <View style={{paddingHorizontal:0,width:"46%",marginRight:10,}}>
+        <View style={{width:"48%",paddingLeft:10,}}>
             <Text>End Time</Text>
-            <View style={{paddingTop:4}}>
+            <View style={{paddingTop:4,}}>
             <View style={styles.pickedDateContainer}>
              
-        <Text style={styles.pickedDatesAgain}>{time.toUTCString()}</Text>
+        <Text style={styles.pickedDatesAgain}>{date.toUTCString()}</Text>
        
         {!isPickerShow && (
         
-        <View style={{paddingTop:12,paddingHorizontal:2}}>
+        <View style={{paddingRight:2}}>
         <MaterialCommunityIcons name='clock-time-ten-outline' size={20} color='black' onPress={showPicker} />
         </View>
    )}
@@ -227,7 +229,7 @@ return (
  </View>
  </View>
  <View style={styles.first}>
-              <View style={{paddingTop:3.5}}>
+              <View style={{paddingTop:2}}>
                   <Text style={styles.circle}>3</Text>
                   </View>
             <Text style={[styles.point,{paddingHorizontal:4}]}>Question rule</Text>
@@ -339,7 +341,6 @@ backgroundColor:'#F8F8F8',
   marginTop:8,
   backgroundColor:'white',
   marginHorizontal:10,
-  margin:8,
   ...Elevations[4] 
  },
  circle:{
@@ -348,8 +349,10 @@ backgroundColor:'#F8F8F8',
       borderRadius: 18 / 2,
       backgroundColor: 'blue',
       color:'white',
-      paddingHorizontal:5,
-      fontSize:14,
+      textAlign:'center',
+      fontSize:12,
+      
+      
   
       
       
@@ -364,8 +367,12 @@ backgroundColor:'#F8F8F8',
  },
  first:{
   flexDirection:'row',
-  paddingHorizontal:8,
-  paddingTop:17
+  justifyContent:'flex-start',
+  alignItems:'center',
+
+  paddingLeft:10,
+  paddingTop:10
+  
 },
  input:{
       paddingHorizontal:5,
@@ -394,35 +401,41 @@ backgroundColor:'#F8F8F8',
     
       flexDirection:'row',
       
-     
+      justifyContent:'space-between',
+      alignItems:'center',
+      
       width:"100%",
-      paddingHorizontal:0,
+    
      
 
     },
     pickedDate: {
-      fontSize: 9.5,
+      fontSize: 9,
       color: 'black',
-      paddingHorizontal:5,
-      paddingTop:16,
-      height:32
       
-     
+      
+      
+      
+      justifyContent:'flex-start',
+      alignItems:'center',
+  
 
     },
     pickedDates: {
-      fontSize: 9.5,
+      fontSize: 9,
       color: 'black',
-      paddingLeft:5,
-      paddingTop:16,
-      height:90,
+      justifyContent:'flex-start',
+      alignItems:'center',
+      
     },
     pickedDatesAgain: {
-      fontSize: 9.5,
+      fontSize: 9,
       color: 'black',
-      paddingLeft:5,
-      paddingTop:16,
-      height:90,
+      justifyContent:'flex-end',
+      alignItems:'center',
+    
+      
+    
     },
     horiz:{
       paddingHorizontal:10,

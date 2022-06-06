@@ -26,8 +26,10 @@ borderRadius:9,
 marginLeft:10,
 marginTop:4
 }]}>
+ <TouchableOpacity onPress={()=> navigation.toggleDrawer()}>
 <Image source={require("../assets/navbar.png")}
       style={styles.stile}></Image>
+      </TouchableOpacity>
       <Text> </Text>
       <View style={styles.stile}>
      <Image source={require("../assets/wallet.png")}
@@ -459,12 +461,14 @@ const styles=StyleSheet.create({
       backgroundColor:'#fabc00',
       textAlign:'center',
       height:40,
-      width:120,
+      justifyContent:'center',
       color:'white',
       fontSize:18,
       fontWeight:'bold',
       borderRadius:5,
-      paddingTop:8
+      paddingTop:8,
+      width:120,
+      alignSelf:"center"
     },
     textStyles:{
       borderWidth:1,
@@ -484,11 +488,13 @@ const styles=StyleSheet.create({
     },
     padBox:{
       paddingTop:15,
-      paddingLeft:60,
-      width:'94.4%',
+      
+   marginLeft:7,
+   marginRight:10,
    
-      marginLeft:60,
-      height:80
+      
+      height:80,
+      backgroundColor:'white'
     },
     circle:{
       width: 56,

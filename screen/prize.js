@@ -7,7 +7,7 @@ import Ionicon from 'react-native-vector-icons/Ionicons';
 import Entypo from 'react-native-vector-icons/Entypo'; 
 import StarRating from 'react-native-star-rating-widget';
 import Elevations from 'react-native-elevation';
-function Prize({ navigation }) {
+function PrizePool({ navigation }) {
     useEffect(() => {
         LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
     }, []);
@@ -26,8 +26,10 @@ borderRadius:9,
 marginLeft:10,
 marginTop:4
 }]}>
+ <TouchableOpacity onPress={()=> navigation.toggleDrawer()}>
 <Image source={require("../assets/navbar.png")}
       style={styles.stile}></Image>
+      </TouchableOpacity>
       <Text> </Text>
       <View style={styles.stile}>
      <Image source={require("../assets/wallet.png")}
@@ -113,7 +115,7 @@ marginTop:4
       <Text style={{color:'white',textAlign:'center',textAlignVertical:'center'}}>Register</Text>
       </TouchableOpacity>
       </View>
-      
+      </View >
       <View style={{backgroundColor:'#F8F8F8'}}>
       <Text style={styles.head}>  English for Sceince, Techs & Engineering</Text>
       </View>
@@ -243,14 +245,14 @@ marginTop:4
                
                   </View>
                   <View style={{paddingTop:15,paddingLeft:25,marginBottom:10}}>
-      <TouchableOpacity style={styles.NewOpacity} onPress={() => navigation.push("LeaderBoard")}>
+      <TouchableOpacity style={styles.NewOpacity} onPress={() => navigation.push("PlatForm")}>
       <Text style={{color:'white',textAlign:'center'}}>Register</Text>
       </TouchableOpacity>
       </View>
       </View>
       </View>
       
-      </View>
+      
       </ScrollView>
 )
 };
@@ -288,7 +290,14 @@ const styles=StyleSheet.create({
              width: '95%',
              margin:8,
          ...Elevations[4],
-         backgroundColor: 'white'
+
+      
+         backgroundColor: 'white',
+         
+      
+         
+   
+      
            
              },
        
@@ -306,7 +315,7 @@ const styles=StyleSheet.create({
         },
         cont:{
           
-           backgroundColor:'#F8F8F8',
+           backgroundColor:'white',
            marginTop:23,
            marginLeft:7,
            marginRight:5,
@@ -446,12 +455,15 @@ const styles=StyleSheet.create({
       backgroundColor:'#fabc00',
       textAlign:'center',
       height:40,
-      width:220,
+      justifyContent:'center',
       color:'white',
       fontSize:18,
       fontWeight:'bold',
       borderRadius:5,
-      paddingTop:8
+      paddingTop:8,
+      width:180,
+      alignSelf:"center"
+      
     },
     textStyles:{
       borderWidth:1,
@@ -471,11 +483,12 @@ const styles=StyleSheet.create({
     },
     padBox:{
       paddingTop:15,
-      paddingLeft:60,
-      width:'94.4%',
+      marginLeft:7,
+      marginRight:10,
+      
       backgroundColor:'white',
-      marginLeft:10,
-      height:80
+
+      height:80,
     },
     circle:{
       width: 56,
@@ -522,34 +535,34 @@ const styles=StyleSheet.create({
 },
 pickedDateContainer: {
    
-    borderRadius: 5,
-    borderWidth:1,  
+   borderRadius: 5,
+   borderWidth:1,  
 
-    width:"110%",
-    marginLeft:15,
-    marginRight:2,
-    backgroundColor: '#FBFBFB',
-    borderColor:'#CCCCCC',
-    color:'#CCCCCC'
+   width:"110%",
+   marginLeft:15,
+   marginRight:2,
+   backgroundColor: '#FBFBFB',
+   borderColor:'#CCCCCC',
+   color:'#CCCCCC'
 
-  },
-  pickedDate: {
-    fontSize: 18,
-    color: 'black',
-    paddingHorizontal:5,
-    paddingTop:3,
-    height:90,
-    fontWeight:'bold',
+ },
+ pickedDate: {
+   fontSize: 18,
+   color: 'black',
+   paddingHorizontal:5,
+   paddingTop:3,
+   height:90,
+   fontWeight:'bold',
 
-  },
-  stlishText:{
-   color: '#00459E',
-   paddingLeft:5,
-   marginBottom:10,
-   fontSize:18,
-   fontWeight:'400',
-   
-  },
+ },
+ stlishText:{
+  color: '#00459E',
+  paddingLeft:5,
+  marginBottom:10,
+  fontSize:18,
+  fontWeight:'400',
+  
+ },
   NewOpacity:{
    backgroundColor:'#3dc78c',
    height:40,
@@ -591,7 +604,31 @@ pickedDateContainer: {
 newTimes:{
    color:'black',
    marginLeft:7
-}
-     
+},
+newCircleView:{
+   width: 50,
+   height: 50,
+   borderRadius: 50 / 2,
+   backgroundColor: '#FFD800',
+   color:'white',
+   fontSize:18,  
+  textAlignVertical:'center',
+   textAlign:'center',
+   margin:15
+        
+},
+    newViewStyle:{
+      height:84.68,
+      width:150,
+      borderWidth:1,
+      borderRadius:11,
+      borderColor:'#FFD800',
+      flexDirection:'row'
+    },
+    newText:{
+      color:'#FFD800',
+      paddingTop:23,
+      fontSize:14
+    }
 });
-export default Prize;
+export default PrizePool;
